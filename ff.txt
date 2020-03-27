@@ -1,0 +1,5 @@
+vlc v4l2:///dev/video0 --sout ‘#transcode{vcodec=mjpg}:std{access=http{mime=multipart/x-mixed-replace;boundary=-7b3cc56e5f51db803f790dad720ed50a},mux=mpjpeg,dst=IP:PORT}’
+
+vlc v4l2:///dev/video0 --sout ‘#std{access=http,mux=mpjpeg,dst=localhost:8080}’:sout=#transcode{vcodec=h264,acodec=mpga,ab=128,channels=2,samplerate=44100,scodec=none}:http{mux=ffmpeg{mux=flv},dst=:8080/stream} :no-sout-all :sout-keep
+
+vlc v4l2:///dev/video0 --sout ‘#std{access=http,mux=mpjpeg,dst=localhost:8080"}'
